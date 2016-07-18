@@ -60,6 +60,19 @@ You can find a [Demo site](http://humboldtux.github.io/sbcb-demo/), and have a l
 
 You can have a look at my [personal website](http://www.humboldtux.net), where i customize it and use it in a different way than the original theme.
 
+### SCSS
+
+This theme makes use of Bootstrap and clean-blog CSS via SCSS. It comes with a pre-compiled CSS file, but you can make changes using SCSS by doing the following:
+- Install [Ruby](https://www.ruby-lang.org/en/downloads/) and [RubyGems](https://rubygems.org/pages/download)
+- Then, using a terminal, run:
+```bash
+gem install bundle
+bundle install
+compass compile
+```
+Which will install all the depencies, and compile a fresh CSS file for you.
+By running ```compass watch```, new CSS will be generated upon each save of an SCSS file.
+
 ## TODO
 
 * multi-language support:
@@ -87,7 +100,7 @@ You can have a look at my [personal website](http://www.humboldtux.net), where i
 * updatedate post metadata for updated post
 * comment system support: disqus, Discourse, Kaiju
 * Syntax highlighting
-* Less support
+* ~~Less support~~ Now using SASS
 * post series : http://discuss.gohugo.io/t/creating-post-series/1115
 * Add menu entry for taxonomies
 * DRY template
