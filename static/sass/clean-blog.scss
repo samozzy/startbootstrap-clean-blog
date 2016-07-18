@@ -1,5 +1,5 @@
-$import: '_variables.scss';
-$import: '_mixins.scss';
+@import '_variables.scss';
+@import '_mixins.scss';
 
 // Global Components
 
@@ -7,6 +7,7 @@ body {
 	@include serif-font;
 	font-size: 20px;
 	color: $gray-dark;
+	-webkit-tap-highlight-color: $theme-primary; 
 }
 
 // Typography
@@ -31,16 +32,13 @@ h6 {
 
 a {
 	color: $gray-dark;
-	&:hover,
-	&:focus {
+	&:hover, &:focus {
 		color: $theme-primary;
 	}
-}
-
-a img {
-	&:hover,
-	&:focus {
-		cursor: zoom-in;
+	img {
+		&:hover, &:focus {
+			cursor: zoom-in;
+		}
 	}
 }
 
@@ -53,18 +51,18 @@ hr.small {
 	max-width: 100px;
 	margin: 15px auto;
 	border-width: 4px;
-	border-color: white;
+	border-color: $white;
 }
 
 // Navigation
 
 .navbar-custom {
+	@include sans-serif-font;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 3;
-	@include sans-serif-font;
 	.navbar-brand {
 		font-weight: 800;
 	}
@@ -86,31 +84,31 @@ hr.small {
 			}
 		}
 	}
-	$media only screen and (min-width: 768px) {
+	@media only screen and (min-width: 768px) {
 		background: transparent;
 		border-bottom: 1px solid transparent;
 		.navbar-brand {
-			color: white;
+			color: $white;
 			padding: 20px;
 			&:hover,
 			&:focus {
-				color: fade(white, 80%);
+				color: fade($white, 80%);
 			}
 		}
 		.nav {
 			li {
 				a {
-					color: white;
+					color: $white;
 					padding: 20px;
 					&:hover,
 					&:focus {
-						color: fade(white, 80%);
+						color: fade($white, 80%);
 					}
 				}
 			}
 		}
 	}
-	$media only screen and (min-width: 1170px) {
+	@media only screen and (min-width: 1170px) {
 		-webkit-transition: background-color 0.3s;
 		-moz-transition: background-color 0.3s;
 		transition: background-color 0.3s;
@@ -126,8 +124,8 @@ hr.small {
 			/* when the user scrolls down, we hide the header right above the viewport */
 			position: fixed;
 			top: -61px;
-			background-color: fade(white, 90%);
-			border-bottom: 1px solid darken(white, 5%);
+			background-color: fade($white, 90%);
+			border-bottom: 1px solid darken($white, 5%);
 			-webkit-transition: -webkit-transform 0.3s;
 			-moz-transition: -moz-transform 0.3s;
 			transition: transform 0.3s;
@@ -164,18 +162,18 @@ hr.small {
 // Header
 
 .intro-header {
+	// NOTE: Background images are set within the HTML using inline CSS!
+	@include background-cover;
 	background-color: $gray-light; 
 	background: no-repeat center center; 
 	background-attachment: scroll;
-	@include background-cover();
-	// NOTE: Background images are set within the HTML using inline CSS!
 	margin-bottom: 50px;
 	.site-heading,
 	.post-heading,
 	.page-heading {
 		padding: 100px 0 50px;
-		color: white;
-		$media only screen and (min-width: 768px) {
+		color: $white;
+		@media only screen and (min-width: 768px) {
 			padding: 150px 0;
 		}
 	}
@@ -187,14 +185,14 @@ hr.small {
 			font-size: 50px;
 		}
 		.subheading {
+			@include sans-serif-font;
 			font-size: 24px;
 			line-height: 1.1;
 			display: block;
-			@include sans-serif-font;
 			font-weight: 300;
 			margin: 10px 0 0;
 		}
-		$media only screen and (min-width: 768px) {
+		@media only screen and (min-width: 768px) {
 			h1 {
 				font-size: 80px;
 			}
@@ -221,10 +219,10 @@ hr.small {
 			font-weight: 300;
 			font-size: 20px;
 			a {
-				color: white;
+				color: $white;
 			}
 		}
-		$media only screen and (min-width: 768px) {
+		@media only screen and (min-width: 768px) {
 			h1 {
 				font-size: 55px;
 			}
@@ -271,7 +269,7 @@ hr.small {
 			}
 		}
 	}
-	$media only screen and (min-width: 768px) {
+	@media only screen and (min-width: 768px) {
 		> a {
 			> .post-title {
 				font-size: 36px;
@@ -349,7 +347,7 @@ footer {
 		-ms-transition: top 0.3s ease,opacity 0.3s ease;
 		transition: top 0.3s ease,opacity 0.3s ease;
 	}
-	&::not(:first-child) {
+	&:not(:first-child) {
 		padding-left: 14px;
 		border-left: 1px solid $gray-lighter;
 	}
@@ -394,7 +392,7 @@ form .row:first-child .floating-label-form-group {
 	&:focus {
 		background-color: $theme-primary;
 		border: 1px solid $theme-primary;
-		color: white;
+		color: $white;
 	}
 }
 
@@ -413,13 +411,13 @@ form .row:first-child .floating-label-form-group {
 			font-weight: 800;
 			letter-spacing: 1px;
 			padding: 15px 25px;
-			background-color: white;
+			background-color: $white;
 			border-radius: 0;
 		}
 
 		> a:hover,
 		> a:focus {
-			color: white;
+			color: $white;
 			background-color: $theme-primary;
 			border: 1px solid $theme-primary;
 		}
@@ -440,27 +438,23 @@ form .row:first-child .floating-label-form-group {
 // Highlight Color Customization
 
 ::-moz-selection {
-	color: white;
+	color: $white;
 	text-shadow: none;
 	background: $theme-primary;
 }
 
 ::selection {
-	color: white;
+	color: $white;
 	text-shadow: none;
 	background: $theme-primary;
 }
 
 img::selection {
-	color: white;
+	color: $white;
 	background: transparent;
 }
 
 img::-moz-selection {
-	color: white;
+	color: $white;
 	background: transparent;
-}
-
-body {
-	-webkit-tap-highlight-color: $theme-primary;
 }

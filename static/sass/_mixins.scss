@@ -6,7 +6,7 @@
     transition: all 0.5s;
 }
 
-@mixin background-cover($cover) {
+@mixin background-cover {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
