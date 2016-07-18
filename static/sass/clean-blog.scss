@@ -1,3 +1,18 @@
+// ==== Bootstrap === // 
+	// Import Bootstrap Compass integration
+	@import "bootstrap-compass";
+
+	// Import custom Bootstrap variables
+	@import "bootstrap-variables";
+
+	// Import Bootstrap for Sass
+	@import "bootstrap";
+
+// Compass (for compiling scss)
+@import "compass/reset";
+
+// Remaining mixins
+
 @import '_variables.scss';
 @import '_mixins.scss';
 
